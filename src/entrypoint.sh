@@ -45,8 +45,8 @@ copy_default_config() {
 #	copy belchertown.py from /data/bin/user to /home/weewx/bin/user/belchertown.py
 #	means all Belchertown skin configuration is external to the container where they can be modified
 
-chmod 777 ./bin/user
+#chmod 777 ./bin/user
 cp -f /data/bin/user/belchertown.py ./bin/user/
-chmod 775 ./bin/user
+#chmod 775 ./bin/user
 
 ./bin/weewxd "$@"
