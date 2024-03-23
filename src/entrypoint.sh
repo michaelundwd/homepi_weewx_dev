@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # all code below here to the final fi is skipped for testing a highly compact entrypoint.sh
-#if [ ]]; then
+if [ ]]; then
 
 set -o nounset
 set -o errexit
@@ -39,7 +39,7 @@ copy_default_config() {
 }
 
 
-#fi
+fi
 # this is the end of the code to be skipped
 
 #	copy belchertown.py from /data/bin/user to /home/weewx/bin/user/belchertown.py
