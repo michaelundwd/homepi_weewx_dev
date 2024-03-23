@@ -15,7 +15,20 @@ if [ "$1" = "--version" ]; then
   exit 0
 fi
 
-#deleted lines
+if [ "$(id -u)" = 0 ]; then
+  # set timezone using environment
+  ln -snf /usr/share/zoneinfo/"${TIMEZONE:-UTC}" /etc/localtime
+  # start the syslog daemon as root
+  /sbin/syslogd -n -S -O - &
+  if [ "${WEEWX_UID:-weewx}" != 0 ]; then
+    # drop privileges and restart this script
+    echo "Switching uid:gid to ${WEEWX_UID:-weewx}:${WEEWX_GID:-weewx}"
+    gosu "${WEEWX_UID:-weewx}:${WEEWX_GID:-weewx}" "$(readlink -f "$0")" "$@"
+    exit 0
+  fi
+fi
+
+# default config
 
 #fi
 # this is the end of the code to be skipped
