@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # all code below here to the final fi is skipped for testing a highly compact entrypoint.sh
-if [ ]]; then
+if [[ ]]; then
 
 set -o nounset
 set -o errexit
