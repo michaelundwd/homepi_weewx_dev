@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# all code below here to the final fi is skipped for testing a highly compact entrypoint.sh
-#if [[ ]]; then
+# mju - latest mods 23/03/2024 to simplify to the minimum working level
 
 set -o nounset
 set -o errexit
@@ -16,9 +15,7 @@ if [ "$1" = "--version" ]; then
 fi
 
 if [ "$(id -u)" = 0 ]; then
-  #echo set timezone using environment
-  #ln -snf /usr/share/zoneinfo/"${TIMEZONE:-UTC}" /etc/localtime
-  echo start the syslog daemon as root
+  echo start the syslog daemon as root user
   /sbin/syslogd -n -S -O - &
   if [ "${WEEWX_UID:-weewx}" != 0 ]; then
     # drop privileges and restart this script
@@ -27,11 +24,6 @@ if [ "$(id -u)" = 0 ]; then
     exit 0
   fi
 fi
-
-# default config
-
-#fi
-# this is the end of the code to be skipped
 
 #	copy belchertown.py from /data/bin/user to /home/weewx/bin/user/belchertown.py
 #	means all Belchertown skin configuration is external to the container where they can be modified
