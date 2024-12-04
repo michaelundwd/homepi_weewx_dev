@@ -1,0 +1,27 @@
+This records notes about updates to Belchertown 1.3
+
+22nd April 2024
+===============
+PR #939
+https://github.com/poblabs/weewx-belchertown/pull/939/commits
+
+This changes the Aeris current conditions endpoint to use observations and removes the METAR configuration
+This means that the current conditions on the lordshipweather would relate to the weather station values, not those of the nearest METAR place.
+
+There are changes to ReadMe.md, belchertown.py, install.py, belchertown.js.tmpl and skin.configuration. Of these the significant ones are to belchertown.py and belchertown.js.tmpl
+
+This looks like a good improvement and I could just copy the changes across and update manually.  There are three options
+1 Make the changes manually to cover just these changes, as there are other development changes I have not implemented
+2 Wait until there is a new release with it properly implemented
+3 Wait until the PR is accepted and then use the  github facilities to download and modify manually
+
+In the end, I made the #939 changes manually, leaving the other changes that have been made to another date.
+The previous working versions of belchertown.py and belchertown.js.tmpl were copied with a .ok suffix in case of problems
+The two files were loaded into D:\OneDrive\Documents\Computing\GitHub\homepi_weewx_dev\PR#939 and copied from there
+
+It seemed to work, but there is no obvious way of knowing other than by comparing with garagepi version for a difference in conditions at Luton Airport and pws_Letchworth as Aeris knows lordshipweather.uk.
+
+December 2024
+=============
+Note garagepi has been superseded by zeropi as the operational weewx system, and been retired as sparepi.
+
